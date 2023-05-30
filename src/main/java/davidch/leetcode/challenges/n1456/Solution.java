@@ -26,31 +26,6 @@ public class Solution {
         return result;
     }
 
-//    public int maxVowels(String s, int k) {
-//        var result = 0;
-//        var vowelsInWindow = 0;
-//
-//        var left = 0;
-//        for (var right = 0; right < s.length(); right++) {
-//            if (isVowel(s.charAt(right))) {
-//                vowelsInWindow++;
-//            }
-//
-//            if (k == 0) {
-//                if (isVowel(s.charAt(left))) {
-//                    vowelsInWindow--;
-//                }
-//                left++;
-//            } else {
-//              k--;
-//            }
-//
-//            result = Math.max(result, vowelsInWindow);
-//        }
-//
-//        return result;
-//    }
-
     private boolean isVowel(char ch) {
         return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
     }
