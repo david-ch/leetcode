@@ -1,8 +1,8 @@
 package davidch.leetcode.challenges.n234;
 
-import davidch.leetcode.challenges.n234.Solution.ListNode;
 import org.junit.jupiter.api.Test;
 
+import static davidch.leetcode.challenges.common.linkedlist.ListNode.linkedList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SolutionTest {
@@ -31,18 +31,5 @@ class SolutionTest {
     void single_element() {
         final var list = linkedList(1);
         assertThat(solution.isPalindrome(list)).isTrue();
-    }
-
-    private ListNode linkedList(int... values) {
-        assert values.length > 0;
-
-        final var head = new ListNode(values[0]);
-        var current = head;
-        for (var i = 1; i < values.length; i++) {
-            current.next = new ListNode(values[i]);
-            current = current.next;
-        }
-
-        return head;
     }
 }

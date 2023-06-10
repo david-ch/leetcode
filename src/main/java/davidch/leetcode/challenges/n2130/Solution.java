@@ -1,5 +1,7 @@
 package davidch.leetcode.challenges.n2130;
 
+import davidch.leetcode.challenges.common.linkedlist.ListNode;
+
 public class Solution {
     public int pairSum(ListNode head) {
         ListNode beforeCursor = null;
@@ -23,14 +25,5 @@ public class Solution {
         }
 
         return maxSum;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int val) {
-            this.val = val;
-        }
     }
 }

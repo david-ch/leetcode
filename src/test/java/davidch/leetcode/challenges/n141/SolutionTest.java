@@ -1,8 +1,9 @@
 package davidch.leetcode.challenges.n141;
 
-import davidch.leetcode.challenges.n141.Solution.ListNode;
+import davidch.leetcode.challenges.common.linkedlist.ListNode;
 import org.junit.jupiter.api.Test;
 
+import static davidch.leetcode.challenges.common.linkedlist.ListNode.linkedList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SolutionTest {
@@ -11,11 +12,7 @@ class SolutionTest {
 
     @Test
     void example_1() {
-        final var head = new ListNode(3);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(0);
-        head.next.next.next = new ListNode(-4);
-
+        final var head = linkedList(3, 2, 0, -4);
         head.next.next.next.next = head.next;
 
         final var result = solution.hasCycle(head);

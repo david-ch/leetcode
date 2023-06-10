@@ -1,5 +1,7 @@
 package davidch.leetcode.challenges.n141;
 
+import davidch.leetcode.challenges.common.linkedlist.ListNode;
+
 public class Solution {
 
     public boolean hasCycle(ListNode head) {
@@ -14,15 +16,5 @@ public class Solution {
         }
 
         return false;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
     }
 }

@@ -1,9 +1,9 @@
 package davidch.leetcode.challenges.n92;
 
 
-import davidch.leetcode.challenges.n92.Solution.ListNode;
 import org.junit.jupiter.api.Test;
 
+import static davidch.leetcode.challenges.common.linkedlist.ListNode.linkedList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SolutionTest {
@@ -32,18 +32,5 @@ class SolutionTest {
         final var result = solution.reverseBetween(list, 1, 4);
 
         assertThat(result).isEqualTo(linkedList(4, 3, 2, 1, 5));
-    }
-
-    private ListNode linkedList(int... values) {
-        assert values.length > 0;
-
-        final var head = new ListNode(values[0]);
-        var current = head;
-        for (var i = 1; i < values.length; i++) {
-            current.next = new ListNode(values[i]);
-            current = current.next;
-        }
-
-        return head;
     }
 }
