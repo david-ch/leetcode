@@ -1,4 +1,4 @@
-package davidch.leetcode.challenges.n570;
+package davidch.leetcode.challenges.n560;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,15 +10,15 @@ class SolutionTest {
 
     @Test
     void example_1() {
-        final var result = solution.singleNonDuplicate(new int[]{1, 1, 2, 3, 3, 4, 4, 8, 8});
-
+        final int[] nums = {1, 1, 1};
+        final var result = solution.subarraySum(nums, 2);
         assertThat(result).isEqualTo(2);
     }
 
     @Test
     void example_2() {
-        final var result = solution.singleNonDuplicate(new int[]{3, 3, 7, 7, 10, 11, 11});
-
-        assertThat(result).isEqualTo(10);
+        final int[] nums = {1, 2, 3};
+        final var result = solution.subarraySum(nums, 3);
+        assertThat(result).isEqualTo(2);
     }
 }
