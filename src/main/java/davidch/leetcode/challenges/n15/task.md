@@ -7,7 +7,7 @@ Notice that the solution set must not contain duplicate triplets.
 Example 1:
 
     Input: nums = [-1,0,1,2,-1,-4]
--4 -1 -1 0 1 2
+
     Output: [[-1,-1,2],[-1,0,1]]
 
     Explanation:
