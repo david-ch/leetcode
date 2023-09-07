@@ -10,31 +10,21 @@ public class Solution {
     private final List<List<Integer>> result = new ArrayList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        visit(new int[depth(root)], 0, root, targetSum);
+        visit(new ArrayList<>(), root, targetSum);
         return result;
     }
 
-    private int depth(TreeNode node) {
-        if (node == null) return 0;
-        return 1 + Math.max(depth(node.left), depth(node.right));
-    }
-
-    private void visit(int[] path, int pathIdx, TreeNode node, int targetSum) {
+    private void visit(List<Integer> path, TreeNode node, int targetSum) {
         if (node == null) return;
 
-        path[pathIdx] = node.val;
-        pathIdx++;
+        path.add(node.val);
         final var currentSum = targetSum - node.val;
 
-        if (currentSum == 0 && node.left == null && node.right == null) {
-            final var r = new ArrayList<Integer>(pathIdx);
-            for (var i = 0; i < pathIdx; i++) {
-                r.add(path[i]);
-            }
-            result.add(r);
-        }
+        if (currentSum == 0 && node.left == null && node.right == null)
+            result.add(new ArrayList<>(path));
 
-        visit(path, pathIdx, node.left,  currentSum);
-        visit(path, pathIdx, node.right, currentSum);
+        visit(path, node.left,  currentSum);
+        visit(path, node.right, currentSum);
+        path.remove(path.size() - 1);
     }
 }
