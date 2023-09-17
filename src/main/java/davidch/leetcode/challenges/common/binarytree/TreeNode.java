@@ -71,4 +71,11 @@ public class TreeNode {
 
         return root;
     }
+
+    public static TreeNode find(TreeNode root, int value) {
+        if (root == null) return null;
+        if (root.val == value) return root;
+        final var leftSubtreeResult = find(root.left, value);
+        return leftSubtreeResult == null ? find(root.right, value) : leftSubtreeResult;
+    }
 }
