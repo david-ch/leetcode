@@ -28,11 +28,4 @@ class SolutionTest {
         final var result = solution.equationsPossible(equations);
         assertThat(result).isFalse();
     }
-
-    @Test
-    void e() {
-        final String[] equations = {"c==b","b==b","f==b","e==e"};
-        final var result = solution.equationsPossible(equations);
-        assertThat(result).isFalse();
-    }
 }
