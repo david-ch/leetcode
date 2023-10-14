@@ -1,22 +1,22 @@
 package davidch.leetcode.challenges.n1433;
 
-import java.util.Arrays;
-
 public class Solution {
     public boolean checkIfCanBreak(String s1, String s2) {
-        final var s1chars = s1.toCharArray();
-        final var s2chars = s2.toCharArray();
-        Arrays.sort(s1chars);
-        Arrays.sort(s2chars);
+        final var s1Fingerprint = new int[26];
+        final var s2Fingerprint = new int[26];
+        final var len = s1.length();
 
-        var s1Breaks = true;
-        var s2Breaks = true;
+        for (var i = 0; i < len; i++) {
+            s1Fingerprint[s1.charAt(i) - 'a']++;
+            s2Fingerprint[s2.charAt(i) - 'a']++;
+        }
 
-        final var last = s1chars.length - 1;
-        for (var i = 0; i <= last; i++) {
-            if (s1Breaks && s1chars[i] < s2chars[i]) s1Breaks = false;
-            if (s2Breaks && s2chars[i] < s1chars[i]) s2Breaks = false;
-            if (!s1Breaks && !s2Breaks) return false;
+        var s1Diff = 0;
+        var s2Diff = 0;
+        for (var i = 0; i < 26; i++) {
+            if (s1Diff >= 0) s1Diff += s1Fingerprint[i] - s2Fingerprint[i];
+            if (s2Diff >= 0) s2Diff += s2Fingerprint[i] - s1Fingerprint[i];
+            if (s1Diff < 0 && s2Diff < 0) return false;
         }
 
         return true;
