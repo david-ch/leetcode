@@ -2,13 +2,15 @@ package davidch.leetcode.challenges.n70;
 
 public class Solution {
     public int climbStairs(int n) {
-        final var memo = new int[n + 1];
-        memo[0] = 1;
-        memo[1] = 1;
+        var prev = 1;
+        var current = 1;
 
-        for (var i = 2; i <= n; i++)
-            memo[i] = memo[i - 1] + memo[i - 2];
+        for (var i = 1; i < n; i++) {
+            var tmp = current;
+            current = current + prev;
+            prev = tmp;
+        }
 
-        return memo[n];
+        return current;
     }
 }
