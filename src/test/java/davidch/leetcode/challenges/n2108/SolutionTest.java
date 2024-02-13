@@ -38,7 +38,7 @@ class SolutionTest {
 
     @Test
     void example_5() {
-        final String[] words = {"cqllrtyhw","swwisru","gpzmbders","wqibjuqvs","pp","usewxryy","ybqfuh","hqwwqftgyu","jggmatpk"};
+        final String[] words = {"cqllrtyhw", "swwisru", "gpzmbders", "wqibjuqvs", "pp", "usewxryy", "ybqfuh", "hqwwqftgyu", "jggmatpk"};
         final var result = solution.firstPalindrome(words);
         assertThat(result).isEqualTo("pp");
     }
