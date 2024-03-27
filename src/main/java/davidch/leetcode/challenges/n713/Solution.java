@@ -4,15 +4,17 @@ public class Solution {
 
     public int numSubarrayProductLessThanK(int[] nums, int k) {
         var result = 0;
+        var left = 0;
+        var product = 1;
+        for (int right = 0; right < nums.length; right++) {
+            product *= nums[right];
 
-        for (int left = 0; left < nums.length; left++) {
-            var sum = 1;
-            for (var right = left; sum < k && right < nums.length; right++) {
-                sum *= nums[right];
-                if (sum < k) {
-                    result++;
-                }
+            while (left <= right && product >= k) {
+                product /= nums[left];
+                left++;
             }
+
+            result += right - left + 1;
         }
 
         return result;
