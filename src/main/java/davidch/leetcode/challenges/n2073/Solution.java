@@ -2,16 +2,15 @@ package davidch.leetcode.challenges.n2073;
 
 public class Solution {
     public int timeRequiredToBuy(int[] tickets, int k) {
+        final var targetTickets = tickets[k];
         var time = 0;
-        var i = 0;
-        while (tickets[k] != 0) {
-            if (tickets[i] > 0) {
-                tickets[i]--;
-                time++;
-            }
-            i++;
-            if (i == tickets.length) i = 0;
+
+        for (var i = 0; i < tickets.length; i++) {
+            final var t = Math.min(tickets[i], targetTickets - (i > k ? 1 : 0));
+            time += t;
+            tickets[i] -= t;
         }
+
         return time;
     }
 }
