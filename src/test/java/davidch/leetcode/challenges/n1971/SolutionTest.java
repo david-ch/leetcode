@@ -21,4 +21,11 @@ class SolutionTest {
         final var result = solution.validPath(6, edges, 0, 2);
         assertThat(result).isTrue();
     }
+
+    @Test
+    void example_3() {
+        final int[][] edges = {{0, 7}, {0, 8}, {6, 1}, {2, 0}, {0, 4}, {5, 8}, {4, 7}, {1, 3}, {3, 5}, {6, 5}};
+        final var result = solution.validPath(10, edges, 5, 7);
+        assertThat(result).isTrue();
+    }
 }
